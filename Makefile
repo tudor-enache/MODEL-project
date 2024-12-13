@@ -2,7 +2,7 @@
 CFLAGS = -Iinclude -Wall -Wextra -g
 
 # object files for each compilation target
-OBJ_1 = build/correct.o \
+OBJ_1 = build/gen_mult.o \
 		build/utils.o \
 		build/lu_decomposition.o \
 		build/lu_inversion.o \
@@ -11,7 +11,7 @@ OBJ_1 = build/correct.o \
 		build/strassen_multiplication.o 
 
 # target executables
-TARGET_1 = bin/correct
+TARGET_1 = bin/gen_mult
 
 # rules
 all: setup $(TARGET_1)
@@ -42,8 +42,8 @@ build/strassen_multiplication.o: src/strassen_multiplication.c include/strassen_
 $(TARGET_1): $(OBJ_1)
 	gcc $(OBJ_1) -o $(TARGET_1)
 
-build/correct.o: src/test_correctness.c include/*
-	gcc $(CFLAGS) -c src/test_correctness.c -o build/correct.o
+build/gen_mult.o: src/generate_mult.c include/*
+	gcc $(CFLAGS) -c src/generate_mult.c -o build/gen_mult.o
 
 # cleaning command
 clean:

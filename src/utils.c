@@ -73,3 +73,20 @@ void subtract(double** A, double** B, double** result, int n) {
 void initialize_random_generator() {
     srand(time(NULL));
 }
+
+// pad matrix to closest power of 2 above it
+// use this to run Strassen on result
+double** pad_upper(double** A, int n) {
+    int power = next_power_of_two(n);
+    if (power == n) {
+        return A;
+    }
+
+    double** P = allocate_matrix(power, 0);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            P[i][j] = A[i][j];
+        }
+    }
+    return P;
+}
