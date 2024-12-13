@@ -3,12 +3,12 @@
 
 #include "../include/naive_multiplication.h"
 
-// Naive multiplication algorithm
-void naive_mult(double** A, double** B, double** C, int n, int m, int p) {
+// assume matrices are square of same dimension
+void naive_mult(double** A, double** B, double** C, int n) {
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < p; j++) {
+        for (int j = 0; j < n; j++) {
             C[i][j] = 0;
-            for (int k = 0; k < m; k++) {
+            for (int k = 0; k < n; k++) {
                 C[i][j] += A[i][k] * B[k][j];
             }
         }
