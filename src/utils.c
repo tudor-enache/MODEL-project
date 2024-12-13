@@ -1,3 +1,7 @@
+// TABASSUM BIBI SAARAH KHODADIN
+// HOCINE LOUBAR
+// TUDOR ENACHE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -20,11 +24,11 @@ int next_power_of_two(int n) {
 
 // populate keeps track of whether we should randomly initialize the values in the matrix
 // this is because we do allocations for "temporary" matrices, i.e. that only store the result of some other computation
-// so there is no need to initialize the values in these matrices
+// so there is no need to initialize the values in these
 double** allocate_matrix(int n, int populate) {
     double** matrix = (double**)malloc(n * sizeof(double*));
     for (int i = 0; i < n; i++) {
-        matrix[i] = (double*)malloc(n * sizeof(double));
+        matrix[i] = (double*)calloc(n, sizeof(double));
         if (populate) {
             for (int j = 0; j < n; j++) {
                 matrix[i][j] = 2 * ((double)rand() / RAND_MAX) - 1;

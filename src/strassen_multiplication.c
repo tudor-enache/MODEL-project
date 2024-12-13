@@ -1,3 +1,7 @@
+// TABASSUM BIBI SAARAH KHODADIN
+// HOCINE LOUBAR
+// TUDOR ENACHE
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -105,4 +109,21 @@ void strassen_mult(double** A, double** B, double** C, int n) {
 
     free_matrix(temp1, new_size);
     free_matrix(temp2, new_size);
+}
+
+// pad matrix to closest power of 2 above it
+// use this to run Strassen on result
+double** pad_upper(double** A, int n) {
+    int power = next_power_of_two(n);
+    if (power == n) {
+        return A;
+    }
+
+    double** P = allocate_matrix(power, 0);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            P[i][j] = A[i][j];
+        }
+    }
+    return P;
 }
