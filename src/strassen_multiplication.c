@@ -5,9 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/strassen_multiplication.h"
 #include "../include/utils.h"
 #include "../include/naive_multiplication.h"
+#include "../include/strassen_multiplication.h"
 
 // assume matrices are square of same dimension, a power of 2
 // this means when testing our implementation, we pre-pad incompatible matrices

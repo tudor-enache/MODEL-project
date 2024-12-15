@@ -75,8 +75,8 @@ void initialize_random_generator() {
 }
 
 // pad matrix to closest power of 2 above it
-// use this to run Strassen on result
-double** pad_upper(double** A, int n) {
+// use this to run Strassen Multiplication on result
+double** pad_mult(double** A, int n) {
     int power = next_power_of_two(n);
     if (power == n) {
         return A;
@@ -89,4 +89,30 @@ double** pad_upper(double** A, int n) {
         }
     }
     return P;
+}
+
+double** pad_inv(double** A, int n) {
+    int power = next_power_of_two(n);
+    if (power == n) {
+        return A;
+    }
+
+    double** P = allocate_matrix(power, 0);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            P[i][j] = A[i][j];
+        }
+    }
+    for (int i = n; i < power; i++) {
+        P[i][i] = 1;
+    }
+    return P;
+}
+
+double** identity(int n) {
+    double** I = allocate_matrix(n, 0);
+    for (int i = 0; i < n; i++) {
+        I[i][i] = 1;
+    }
+    return I;
 }

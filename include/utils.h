@@ -8,6 +8,8 @@ void print_matrix(double** matrix, int n);
 void add(double** A, double** B, double** result, int n);
 void subtract(double** A, double** B, double** result, int n);
 void initialize_random_generator();
-double** pad_upper(double** A, int n);
+double** pad_mult(double** A, int n);
+double** pad_inv(double** A, int n);
+double** identity(int n);
 
 #endif // UTILS_H
