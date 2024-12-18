@@ -39,7 +39,7 @@ void solve_lower_triangular(double** L, double* x, double* b, int n) {
     }
 }
 
-//  we work by resetting arrays
+// we work by resetting arrays
 // this should give good performance
 double** lu_inv(double** U, double** L, int n) {
     double** A_inv = allocate_matrix(n, 0);

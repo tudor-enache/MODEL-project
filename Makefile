@@ -38,7 +38,7 @@ build/lu_inversion.o: src/lu_inversion.c include/lu_inversion.h include/utils.h
 build/naive_multiplication.o: src/naive_multiplication.c include/naive_multiplication.h include/utils.h
 	gcc $(CFLAGS) -c src/naive_multiplication.c -o build/naive_multiplication.o
 
-build/strassen_inversion.o: src/strassen_inversion.c include/strassen_inversion.h include/utils.h
+build/strassen_inversion.o: src/strassen_inversion.c include/strassen_inversion.h include/lu_inversion.h include/utils.h
 	gcc $(CFLAGS) -c src/strassen_inversion.c -o build/strassen_inversion.o
 
 build/strassen_multiplication.o: src/strassen_multiplication.c include/strassen_multiplication.h include/naive_multiplication.h include/utils.h

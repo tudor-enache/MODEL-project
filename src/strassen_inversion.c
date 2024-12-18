@@ -10,7 +10,6 @@
 
 // assume matrices are square of same dimension, a power of 2
 // further assume all submatrices a and Z are invertible
-// (for analysis) if they are not, we simply retry
 double** strassen_inv(double** A, int n, void (*mult)(double**, double**, double**, int)) {
     if (n == 1) {
         double** A_inv = allocate_matrix(n, 0);
@@ -85,11 +84,14 @@ double** strassen_inv(double** A, int n, void (*mult)(double**, double**, double
     free_matrix(c, new_size);
     free_matrix(d, new_size);
     free_matrix(e, new_size);
+
     free_matrix(Z, new_size);
+
     free_matrix(x, new_size);
     free_matrix(y, new_size);
     free_matrix(z, new_size);
     free_matrix(t, new_size);
+    
     free_matrix(temp1, new_size);
     free_matrix(temp2, new_size);
     free_matrix(temp3, new_size);

@@ -9,9 +9,7 @@ colors = {"N": "red", "S": "blue"}
 labels = {"N": "Naive", "S": "Strassen"}
 
 for type, timings in grouped:
-    plt.scatter(timings["Size"], timings["Time"], color=colors[type], label=labels[type])
-
-# perform some regression too
+    plt.plot(timings["Size"], timings["Time"], color=colors[type], label=labels[type])
 
 plt.xlabel("Size of matrices")
 plt.ylabel("Time")
